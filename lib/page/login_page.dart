@@ -1,3 +1,4 @@
+import 'package:chatter_message/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -8,6 +9,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+// text controllers
+  final emailCotroller = TextEditingController();
+  final paasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +33,12 @@ class _LoginPageState extends State<LoginPage> {
                   fontSize: 16,
                 ),
               ),
-              //email text field
 
+              //email text field
+              MyTextField(
+                  controller: emailCotroller,
+                  hintText: 'Email',
+                  obscureText: false)
               //password text field
 
               //sign in button
