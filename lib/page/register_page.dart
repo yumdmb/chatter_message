@@ -2,17 +2,21 @@ import 'package:chatter_message/components/my_button.dart';
 import 'package:chatter_message/components/my_text_field.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-// text controllers
+class _RegisterPageState extends State<RegisterPage> {
+  // text controllers
   final emailCotroller = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  // sign up user
+  void signUp() {}
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +38,10 @@ class _LoginPageState extends State<LoginPage> {
                   size: 100,
                   color: Colors.grey[800],
                 ),
-                //welcome back message
+
+                //create a new account message
                 Text(
-                  "Welcome back! You've been missed",
+                  "Let's create an account for you!",
                   style: TextStyle(
                     fontSize: 16,
                   ),
@@ -66,8 +71,18 @@ class _LoginPageState extends State<LoginPage> {
                   height: 25,
                 ),
 
-                //sign in button
-                MyButton(onTap: () {}, text: "Sign In"),
+                //confirm password text field
+                MyTextField(
+                    controller: confirmPasswordController,
+                    hintText: 'Confirm password',
+                    obscureText: true),
+
+                const SizedBox(
+                  height: 25,
+                ),
+
+                //sign UP button
+                MyButton(onTap: signUp, text: "Sign Up"),
 
                 const SizedBox(
                   height: 50,
@@ -78,12 +93,12 @@ class _LoginPageState extends State<LoginPage> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Not a member? '),
+                    Text('Already a member?'),
                     SizedBox(
                       width: 4,
                     ),
                     Text(
-                      'Register now',
+                      'Login now',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
